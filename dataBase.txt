@@ -1,1 +1,0 @@
-[{"id":1,"title":"Modification of product","description":"This is a test product","price":110,"thumbnail":"Without image","code":"xzz110","stock":22},{"id":2,"title":"Test product","description":"This is a test product","price":330,"thumbnail":"Without image","code":"xyz321","stock":31}]
