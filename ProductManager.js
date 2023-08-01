@@ -1,24 +1,24 @@
 import fs from 'fs';
 
+
 class ProductManager {
-    constructor ( products = [] ) {
-        this.products = products
+    constructor () {
         this.path = "./dataBase.txt"
     }
     initDataBase () {
         const existDataBase = fs.existsSync ( this.path );
         if ( existDataBase ) {
-            return existDataBase
+            return existDataBase;
         } else {
             let createDataBase = fs.writeFileSync ( this.path, '[]');
-            return existDataBase
+            return existDataBase;
         } 
     }
     deleteDataBase () {
         if ( this.initDataBase () ) {
             fs.unlinkSync ( this.path );
         } else {
-            console.log ( "Error! database Not found" )
+            console.log ( "Error! database Not found" );
         }
     }
     downLoadDataBase () {
@@ -34,7 +34,7 @@ class ProductManager {
         if ( this.initDataBase () ) {
             const jsonProduct = fs.writeFileSync ( this.path, JSON.stringify (product) );
         } else {
-            console.log ( "Error, cannot write" )
+            console.log ( "Error, cannot write" );
         }
     }
     getProduct () {
@@ -42,7 +42,7 @@ class ProductManager {
     }
     validateProducts ( product ) {
         const fields = Object.values ( product );
-        const invalidFields = fields.find ( field => field === "" )
+        const invalidFields = fields.find ( field => field === "" );
         if ( invalidFields != "" && fields.length === 7 && fields[6] > 0 ) {
             return true;
         }
@@ -100,7 +100,7 @@ class Product {
     }
     static autoId () {
         this.unicId ? this.unicId ++ : this.unicId = 1;
-        return this.unicId
+        return this.unicId;
     }
 }
 
@@ -108,5 +108,3 @@ const testItem1 = new Product ( "producto prueba", "Este es un producto prueba",
 const testItem2 = new Product ( "Test product", "This is a test product", 330, "./images/Without image", "xyz321", 31 );
 const testItem3 = new Product ( "Test product3", "This is a test product", 130, "./images/Without image", "xyz000", 2 );
 const testItem4 = new Product ( "Modification of product", "This is a test product", 110, "./images/Without image", "xzz110", 22 );
-
-
